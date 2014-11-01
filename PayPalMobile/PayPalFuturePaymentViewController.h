@@ -17,14 +17,15 @@ typedef void (^PayPalFuturePaymentDelegateCompletionBlock)(void);
 
 /// Exactly one of these two required delegate methods will get called when the UI completes.
 /// You MUST dismiss the modal view controller from these required delegate methods.
+
 @protocol PayPalFuturePaymentDelegate <NSObject>
 @required
 
 /// User canceled the future payment process.
 /// Your code MUST dismiss the PayPalFuturePaymentViewController.
 /// @param futurePaymentViewController The PayPalFuturePaymentViewController that the user canceled without agreement.
-- (void)payPalFuturePaymentDidCancel:(PayPalFuturePaymentViewController *)futurePaymentViewController;
 
+- (void)payPalFuturePaymentDidCancel:(PayPalFuturePaymentViewController *)futurePaymentViewController;
 /// User successfully completed the future payment authorization.
 /// The PayPalFuturePaymentViewController's activity indicator has been dismissed.
 /// Your code MAY deal with the futurePaymentAuthorization, if it did not already do so within your optional
@@ -32,9 +33,9 @@ typedef void (^PayPalFuturePaymentDelegateCompletionBlock)(void);
 /// Your code MUST dismiss the PayPalFuturePaymentViewController.
 /// @param futurePaymentViewController The PayPalFuturePaymentViewController where the user successfullly authorized.
 /// @param futurePaymentAuthorization A dictionary containing information that your server will need to process the payment.
+
 - (void)payPalFuturePaymentViewController:(PayPalFuturePaymentViewController *)futurePaymentViewController
                 didAuthorizeFuturePayment:(NSDictionary *)futurePaymentAuthorization;
-
 @optional
 /// User successfully completed the future payment authorization.
 /// The PayPalFuturePaymentViewController's activity indicator is still visible.
@@ -58,10 +59,11 @@ typedef void (^PayPalFuturePaymentDelegateCompletionBlock)(void);
 /// @param configuration The configuration to be used for the lifetime of the controller.
 ///     The configuration properties merchantName, merchantPrivacyPolicyURL, and merchantUserAgreementURL must be provided.
 /// @param delegate The delegate you want to receive updates about the future payment authorization.
+
 - (instancetype)initWithConfiguration:(PayPalConfiguration *)configuration
                              delegate:(id<PayPalFuturePaymentDelegate>)delegate;
-
 /// Delegate access
+
 @property (nonatomic, weak, readonly) id<PayPalFuturePaymentDelegate> futurePaymentDelegate;
 
 @end
