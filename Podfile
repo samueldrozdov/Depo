@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Depo' do
 
-pod 'Chain', '0.1.16'
+pod 'Chain', '2.0.0'
 
 end
 
