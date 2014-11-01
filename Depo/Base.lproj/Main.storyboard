@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Depo View Controller-->
@@ -15,8 +16,65 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85H-5y-FOn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="qUk-ua-alf"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-5R-qZ4" userLabel="bottom view">
+                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="eCk-9E-3Yr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="hpn-Oq-m7i"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enter amount" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
+                                <rect key="frame" x="225" y="250" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="bsQ-YZ-w2r"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi4-KK-ica">
+                                <rect key="frame" x="260" y="300" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0yT-Hp-kY4"/>
+                                    <constraint firstAttribute="width" constant="80" id="wUv-vI-GPP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Send!">
+                                    <color key="titleColor" red="0.25652024150000002" green="0.82939195629999996" blue="0.05626542121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jgV-Jr-ozi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="85H-5y-FOn" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="5zN-pG-e6I"/>
+                            <constraint firstItem="Vxp-G6-Kjb" firstAttribute="top" secondItem="85H-5y-FOn" secondAttribute="bottom" constant="50" id="8j4-0J-ZqP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="85H-5y-FOn" secondAttribute="trailing" constant="-16" id="A7Z-de-Rkf"/>
+                            <constraint firstItem="Xi4-KK-ica" firstAttribute="top" secondItem="Vxp-G6-Kjb" secondAttribute="bottom" constant="20" id="BNG-zh-fMs"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Rl2-5R-qZ4" secondAttribute="bottom" id="Fwq-Ay-P6j"/>
+                            <constraint firstAttribute="centerX" secondItem="Xi4-KK-ica" secondAttribute="centerX" id="Nf8-lP-Wox"/>
+                            <constraint firstItem="85H-5y-FOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Wii-GX-t6z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rl2-5R-qZ4" secondAttribute="trailing" constant="-16" id="dqi-jN-R16"/>
+                            <constraint firstItem="Rl2-5R-qZ4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ftb-Ct-0R9"/>
+                            <constraint firstAttribute="centerX" secondItem="Vxp-G6-Kjb" secondAttribute="centerX" id="qab-NM-HNN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountField" destination="Vxp-G6-Kjb" id="5u8-YU-94c"/>
+                        <outlet property="sendButton" destination="Xi4-KK-ica" id="WNe-Us-fgb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
