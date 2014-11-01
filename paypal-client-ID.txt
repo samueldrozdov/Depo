@@ -4,8 +4,8 @@ client ID: AdWIMhBWL1J4CABkN05e4ywdzam7K-2g78QaY9m78OlWE1N3k9J210IhBhUI
 Secret: EPRXVhB2PPfGijWTpLXqXV6zxPRlkNUzuw6IZEfQNCrR5QRfnhDH_FVf-vWn
 
 
-username: pou-facilitator_api1.mit.edu
+username: testbank@gmail.com
 
-password: BZHEJ9FZVVJNZDVY
+password: abc12345
 
 signature: AFcWxV21C7fd0v3bYYYRCpSSRl31Ax1QE5aNNOU4JWYMaCKEJBktW5ys
