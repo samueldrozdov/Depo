@@ -16,12 +16,21 @@
 
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
 
+@property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
+
+
 @end
 
-@implementation DepoViewController
+@implementation DepoViewController {
+    NSInteger countdownCounter;
+    float bitcoinPrice;
+    UITapGestureRecognizer *tap;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
     
@@ -48,6 +57,54 @@
     
     // Preconnect to PayPal early
     [PayPalMobile preconnectWithEnvironment:self.environment];
+
+    
+    //timer to refresh bitcoin value
+    countdownCounter = 3;
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
+    
+    //text field mechanics
+    self.amountField.delegate = self;
+    tap = [[UITapGestureRecognizer alloc]
+           initWithTarget:self
+           action:@selector(dismissKeyboard)];
+}
+
+#pragma mark - Text Field Mechanics
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.amountField resignFirstResponder];
+    float typedAmount = [self.amountField.text floatValue];
+    self.conversionLabel.text = [NSString stringWithFormat:@"= %.03f BTC", typedAmount/bitcoinPrice];
+    [self.view removeGestureRecognizer:tap];
+}
+
+#pragma mark - Update bitcoin price
+
+-(void)countdown {
+    countdownCounter--;
+    if(countdownCounter == 0) {
+        NSLog(@"Counter Reset");
+        countdownCounter = 10;
+        [self getBitcoinPrice];
+    }
+}
+
+-(void)getBitcoinPrice {
+    NSURL *url = [NSURL URLWithString:@"https://coinbase.com/api/v1/prices/spot_rate"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error != nil) {
+            NSLog(@"Could not get bitcoin price with error:%@",error);
+        } else {
+            NSDictionary *spotPrice = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            bitcoinPrice = [[spotPrice objectForKey:@"amount"] floatValue];
+        }
+    }];
 }
 
 
@@ -55,6 +112,7 @@
 #pragma mark - Buttons
 
 - (IBAction)sendTapped:(id)sender {
+
     // Remove our last completed payment, just for demo purposes.
     self.resultText = nil;
     PayPalItem *item1 = [PayPalItem itemWithName:@"Bitcoin Transaction"
@@ -106,7 +164,9 @@
     [self showSuccess];
     
     [self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
+    self.amountField.text=nil;
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {

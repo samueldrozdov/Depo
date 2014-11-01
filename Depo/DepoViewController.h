@@ -31,7 +31,7 @@ typedef void (^PayPalPaymentDelegateCompletionBlock)(void);
 
 
 
-@interface DepoViewController : UIViewController<PayPalPaymentDelegate>
+@interface DepoViewController : UIViewController<PayPalPaymentDelegate,UITextFieldDelegate>
 
 @property(nonatomic, strong, readwrite) NSString *environment;
 @property(nonatomic, assign, readwrite) BOOL acceptCreditCards;
@@ -42,6 +42,5 @@ typedef void (^PayPalPaymentDelegateCompletionBlock)(void);
                        delegate:(id<PayPalPaymentDelegate>)delegate;
 @property(nonatomic, weak, readonly) id<PayPalPaymentDelegate> paymentDelegate;
 @property(nonatomic, assign, readonly) PayPalPaymentViewControllerState state;
-
 
 @end

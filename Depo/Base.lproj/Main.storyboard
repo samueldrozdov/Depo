@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKr-Wz-LXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-437" y="337"/>
+            <point key="canvasLocation" x="-435" y="322"/>
         </scene>
         <!--depo-->
         <scene sceneID="ufC-wZ-h7g">
@@ -33,36 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-5R-qZ4" userLabel="bottom view">
-                                <rect key="frame" x="0.0" y="342" width="600" height="150"/>
-                                <color key="backgroundColor" red="0.98543249310000003" green="0.98543249310000003" blue="0.98543249310000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="0hn-Rc-KWM"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
-                                <rect key="frame" x="225" y="200" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="bsQ-YZ-w2r"/>
-                                </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi4-KK-ica">
-                                <rect key="frame" x="260" y="250" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="0yT-Hp-kY4"/>
-                                    <constraint firstAttribute="width" constant="80" id="wUv-vI-GPP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Send!">
-                                    <color key="titleColor" red="0.25652024150000002" green="0.82939195629999996" blue="0.05626542121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jgV-Jr-ozi"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85H-5y-FOn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                 <color key="backgroundColor" red="0.98543249309392267" green="0.98543249309392267" blue="0.98543249309392267" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,6 +40,43 @@
                                     <constraint firstAttribute="height" constant="150" id="STA-6A-yR1"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-5R-qZ4" userLabel="bottom view">
+                                <rect key="frame" x="0.0" y="342" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.98543249310000003" green="0.98543249310000003" blue="0.98543249310000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="0hn-Rc-KWM"/>
+                                </constraints>
+                            </view>
+
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enter amount" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
+                                <rect key="frame" x="225" y="200" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="bsQ-YZ-w2r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi4-KK-ica">
+                                <rect key="frame" x="260" y="250" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.25652024150000002" green="0.82939195629999996" blue="0.05626542121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0yT-Hp-kY4"/>
+                                    <constraint firstAttribute="width" constant="80" id="wUv-vI-GPP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Send!">
+                                    <color key="titleColor" red="0.98543249310000003" green="0.98543249310000003" blue="0.98543249310000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jgV-Jr-ozi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="= 0.0 BTC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooS-tF-hxd">
+                                <rect key="frame" x="383" y="200" width="68" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,7 +84,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="85H-5y-FOn" secondAttribute="trailing" constant="-16" id="A7Z-de-Rkf"/>
                             <constraint firstItem="Xi4-KK-ica" firstAttribute="top" secondItem="Vxp-G6-Kjb" secondAttribute="bottom" constant="20" id="BNG-zh-fMs"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Rl2-5R-qZ4" secondAttribute="bottom" id="Fwq-Ay-P6j"/>
+                            <constraint firstItem="ooS-tF-hxd" firstAttribute="top" secondItem="85H-5y-FOn" secondAttribute="bottom" constant="50" id="NZM-g4-NNf"/>
                             <constraint firstAttribute="centerX" secondItem="Xi4-KK-ica" secondAttribute="centerX" id="Nf8-lP-Wox"/>
+                            <constraint firstItem="ooS-tF-hxd" firstAttribute="leading" secondItem="Vxp-G6-Kjb" secondAttribute="trailing" constant="8" id="VKS-Ks-xMF"/>
                             <constraint firstItem="85H-5y-FOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Wii-GX-t6z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rl2-5R-qZ4" secondAttribute="trailing" constant="-16" id="dqi-jN-R16"/>
                             <constraint firstItem="Rl2-5R-qZ4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ftb-Ct-0R9"/>
@@ -97,6 +106,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountField" destination="Vxp-G6-Kjb" id="5u8-YU-94c"/>
+                        <outlet property="conversionLabel" destination="ooS-tF-hxd" id="cXW-Qs-uqh"/>
                         <outlet property="sendButton" destination="Xi4-KK-ica" id="WNe-Us-fgb"/>
                     </connections>
                 </viewController>
@@ -128,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agz-Wi-FEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="342"/>
+            <point key="canvasLocation" x="916" y="322"/>
         </scene>
     </scenes>
 </document>
