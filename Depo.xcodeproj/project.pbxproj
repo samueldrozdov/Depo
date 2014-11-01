@@ -25,6 +25,7 @@
 		4D322DC01A055D5000014992 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D322DBF1A055D5000014992 /* MobileCoreServices.framework */; };
 		4D322DC21A055D5700014992 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D322DC11A055D5700014992 /* SystemConfiguration.framework */; };
 		4D322DC41A055D7C00014992 /* acknowledgments.md in Sources */ = {isa = PBXBuildFile; fileRef = 4D322DC31A055D7C00014992 /* acknowledgments.md */; };
+		4D322DC71A0581C300014992 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D322DC61A0581C300014992 /* ServerRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		4D322DBF1A055D5000014992 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4D322DC11A055D5700014992 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D322DC31A055D7C00014992 /* acknowledgments.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = acknowledgments.md; sourceTree = "<group>"; };
+		4D322DC51A0581C300014992 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
+		4D322DC61A0581C300014992 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		8A5FCB45AF93A430579A3FA0 /* Pods-Depo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Depo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Depo/Pods-Depo.debug.xcconfig"; sourceTree = "<group>"; };
 		E038F26500C81A13A62D89E1 /* Pods-Depo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Depo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Depo/Pods-Depo.release.xcconfig"; sourceTree = "<group>"; };
 		FE41EEDC048815D5647B40D2 /* libPods-Depo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Depo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +129,8 @@
 			children = (
 				41FB65E51A05524200C52848 /* AppDelegate.h */,
 				41FB65E61A05524200C52848 /* AppDelegate.m */,
+				4D322DC51A0581C300014992 /* ServerRequest.h */,
+				4D322DC61A0581C300014992 /* ServerRequest.m */,
 				41FB660A1A055A2C00C52848 /* DepoViewController.h */,
 				41FB660B1A055A2C00C52848 /* DepoViewController.m */,
 				41FB65EE1A05524200C52848 /* Main.storyboard */,
@@ -340,6 +345,7 @@
 			files = (
 				4D322DC41A055D7C00014992 /* acknowledgments.md in Sources */,
 				41FB65E71A05524200C52848 /* AppDelegate.m in Sources */,
+				4D322DC71A0581C300014992 /* ServerRequest.m in Sources */,
 				41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */,
 				41FB660C1A055A2C00C52848 /* DepoViewController.m in Sources */,
 				41FB65E41A05524200C52848 /* main.m in Sources */,
