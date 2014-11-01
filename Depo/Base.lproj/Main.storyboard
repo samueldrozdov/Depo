@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Depo View Controller-->
+        <!--depo-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="DepoViewController" sceneMemberID="viewController">
@@ -18,31 +18,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85H-5y-FOn">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.98543249309392267" green="0.98543249309392267" blue="0.98543249309392267" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="qUk-ua-alf"/>
+                                    <constraint firstAttribute="height" constant="150" id="STA-6A-yR1"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-5R-qZ4" userLabel="bottom view">
-                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="406" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.98543249310000003" green="0.98543249310000003" blue="0.98543249310000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="eCk-9E-3Yr"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="hpn-Oq-m7i"/>
+                                    <constraint firstAttribute="height" constant="150" id="0hn-Rc-KWM"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enter amount" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
-                                <rect key="frame" x="225" y="250" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="bsQ-YZ-w2r"/>
-                                </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi4-KK-ica">
-                                <rect key="frame" x="260" y="300" width="80" height="80"/>
+                                <rect key="frame" x="260" y="295" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0yT-Hp-kY4"/>
                                     <constraint firstAttribute="width" constant="80" id="wUv-vI-GPP"/>
@@ -50,17 +40,24 @@
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Send!">
                                     <color key="titleColor" red="0.25652024150000002" green="0.82939195629999996" blue="0.05626542121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sendTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jgV-Jr-ozi"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enter amount" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
+                                <rect key="frame" x="225" y="245" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="bsQ-YZ-w2r"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="85H-5y-FOn" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="5zN-pG-e6I"/>
-                            <constraint firstItem="Vxp-G6-Kjb" firstAttribute="top" secondItem="85H-5y-FOn" secondAttribute="bottom" constant="50" id="8j4-0J-ZqP"/>
+                            <constraint firstItem="Vxp-G6-Kjb" firstAttribute="top" secondItem="85H-5y-FOn" secondAttribute="bottom" constant="75" id="8j4-0J-ZqP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="85H-5y-FOn" secondAttribute="trailing" constant="-16" id="A7Z-de-Rkf"/>
                             <constraint firstItem="Xi4-KK-ica" firstAttribute="top" secondItem="Vxp-G6-Kjb" secondAttribute="bottom" constant="20" id="BNG-zh-fMs"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Rl2-5R-qZ4" secondAttribute="bottom" id="Fwq-Ay-P6j"/>
@@ -68,9 +65,19 @@
                             <constraint firstItem="85H-5y-FOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Wii-GX-t6z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rl2-5R-qZ4" secondAttribute="trailing" constant="-16" id="dqi-jN-R16"/>
                             <constraint firstItem="Rl2-5R-qZ4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ftb-Ct-0R9"/>
+                            <constraint firstItem="85H-5y-FOn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="jov-Of-99s"/>
                             <constraint firstAttribute="centerX" secondItem="Vxp-G6-Kjb" secondAttribute="centerX" id="qab-NM-HNN"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="depo" id="PH4-xW-u3W">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="7b2-UE-ccB">
+                            <connections>
+                                <segue destination="yKx-e6-ftU" kind="show" id="s6J-qO-cYC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountField" destination="Vxp-G6-Kjb" id="5u8-YU-94c"/>
                         <outlet property="sendButton" destination="Xi4-KK-ica" id="WNe-Us-fgb"/>
@@ -78,6 +85,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Ecw-Nc-PUP">
+            <objects>
+                <tableViewController id="yKx-e6-ftU" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NVL-6J-dO5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HML-pD-hdM">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HML-pD-hdM" id="yzn-x4-qrA">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yKx-e6-ftU" id="tTP-ez-iFR"/>
+                            <outlet property="delegate" destination="yKx-e6-ftU" id="2Uf-IL-dHb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Agz-Wi-FEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="342"/>
         </scene>
     </scenes>
 </document>
