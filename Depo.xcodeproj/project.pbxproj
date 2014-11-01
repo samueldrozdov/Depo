@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41FB65E41A05524200C52848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E31A05524200C52848 /* main.m */; };
+		41FB65E71A05524200C52848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E61A05524200C52848 /* AppDelegate.m */; };
+		41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E81A05524200C52848 /* Depo.xcdatamodeld */; };
+		41FB65ED1A05524200C52848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65EC1A05524200C52848 /* ViewController.m */; };
+		41FB65F01A05524200C52848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65EE1A05524200C52848 /* Main.storyboard */; };
+		41FB65F21A05524200C52848 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65F11A05524200C52848 /* Images.xcassets */; };
+		41FB65F51A05524200C52848 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65F31A05524200C52848 /* LaunchScreen.xib */; };
+		41FB66011A05524300C52848 /* DepoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB66001A05524300C52848 /* DepoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41FB65FB1A05524300C52848 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41FB65D61A05524200C52848 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41FB65DD1A05524200C52848;
+			remoteInfo = Depo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		41FB65DE1A05524200C52848 /* Depo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Depo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41FB65E21A05524200C52848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41FB65E31A05524200C52848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		41FB65E51A05524200C52848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		41FB65E61A05524200C52848 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		41FB65E91A05524200C52848 /* Depo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Depo.xcdatamodel; sourceTree = "<group>"; };
+		41FB65EB1A05524200C52848 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		41FB65EC1A05524200C52848 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		41FB65EF1A05524200C52848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41FB65F11A05524200C52848 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		41FB65F41A05524200C52848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		41FB65FA1A05524300C52848 /* DepoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DepoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41FB65FF1A05524300C52848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41FB66001A05524300C52848 /* DepoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41FB65DB1A05524200C52848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41FB65F71A05524300C52848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41FB65D51A05524200C52848 = {
+			isa = PBXGroup;
+			children = (
+				41FB65E01A05524200C52848 /* Depo */,
+				41FB65FD1A05524300C52848 /* DepoTests */,
+				41FB65DF1A05524200C52848 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		41FB65DF1A05524200C52848 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41FB65DE1A05524200C52848 /* Depo.app */,
+				41FB65FA1A05524300C52848 /* DepoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41FB65E01A05524200C52848 /* Depo */ = {
+			isa = PBXGroup;
+			children = (
+				41FB65E51A05524200C52848 /* AppDelegate.h */,
+				41FB65E61A05524200C52848 /* AppDelegate.m */,
+				41FB65EB1A05524200C52848 /* ViewController.h */,
+				41FB65EC1A05524200C52848 /* ViewController.m */,
+				41FB65EE1A05524200C52848 /* Main.storyboard */,
+				41FB65F11A05524200C52848 /* Images.xcassets */,
+				41FB65F31A05524200C52848 /* LaunchScreen.xib */,
+				41FB65E81A05524200C52848 /* Depo.xcdatamodeld */,
+				41FB65E11A05524200C52848 /* Supporting Files */,
+			);
+			path = Depo;
+			sourceTree = "<group>";
+		};
+		41FB65E11A05524200C52848 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41FB65E21A05524200C52848 /* Info.plist */,
+				41FB65E31A05524200C52848 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41FB65FD1A05524300C52848 /* DepoTests */ = {
+			isa = PBXGroup;
+			children = (
+				41FB66001A05524300C52848 /* DepoTests.m */,
+				41FB65FE1A05524300C52848 /* Supporting Files */,
+			);
+			path = DepoTests;
+			sourceTree = "<group>";
+		};
+		41FB65FE1A05524300C52848 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41FB65FF1A05524300C52848 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41FB65DD1A05524200C52848 /* Depo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41FB66041A05524300C52848 /* Build configuration list for PBXNativeTarget "Depo" */;
+			buildPhases = (
+				41FB65DA1A05524200C52848 /* Sources */,
+				41FB65DB1A05524200C52848 /* Frameworks */,
+				41FB65DC1A05524200C52848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Depo;
+			productName = Depo;
+			productReference = 41FB65DE1A05524200C52848 /* Depo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41FB65F91A05524300C52848 /* DepoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41FB66071A05524300C52848 /* Build configuration list for PBXNativeTarget "DepoTests" */;
+			buildPhases = (
+				41FB65F61A05524300C52848 /* Sources */,
+				41FB65F71A05524300C52848 /* Frameworks */,
+				41FB65F81A05524300C52848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41FB65FC1A05524300C52848 /* PBXTargetDependency */,
+			);
+			name = DepoTests;
+			productName = DepoTests;
+			productReference = 41FB65FA1A05524300C52848 /* DepoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41FB65D61A05524200C52848 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = MoonAnimals;
+				TargetAttributes = {
+					41FB65DD1A05524200C52848 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					41FB65F91A05524300C52848 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 41FB65DD1A05524200C52848;
+					};
+				};
+			};
+			buildConfigurationList = 41FB65D91A05524200C52848 /* Build configuration list for PBXProject "Depo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41FB65D51A05524200C52848;
+			productRefGroup = 41FB65DF1A05524200C52848 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41FB65DD1A05524200C52848 /* Depo */,
+				41FB65F91A05524300C52848 /* DepoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41FB65DC1A05524200C52848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41FB65F01A05524200C52848 /* Main.storyboard in Resources */,
+				41FB65F51A05524200C52848 /* LaunchScreen.xib in Resources */,
+				41FB65F21A05524200C52848 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41FB65F81A05524300C52848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41FB65DA1A05524200C52848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41FB65E71A05524200C52848 /* AppDelegate.m in Sources */,
+				41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */,
+				41FB65ED1A05524200C52848 /* ViewController.m in Sources */,
+				41FB65E41A05524200C52848 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41FB65F61A05524300C52848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41FB66011A05524300C52848 /* DepoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41FB65FC1A05524300C52848 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41FB65DD1A05524200C52848 /* Depo */;
+			targetProxy = 41FB65FB1A05524300C52848 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		41FB65EE1A05524200C52848 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41FB65EF1A05524200C52848 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41FB65F31A05524200C52848 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41FB65F41A05524200C52848 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41FB66021A05524300C52848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		41FB66031A05524300C52848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41FB66051A05524300C52848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Depo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		41FB66061A05524300C52848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Depo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		41FB66081A05524300C52848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DepoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Depo.app/Depo";
+			};
+			name = Debug;
+		};
+		41FB66091A05524300C52848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DepoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Depo.app/Depo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41FB65D91A05524200C52848 /* Build configuration list for PBXProject "Depo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41FB66021A05524300C52848 /* Debug */,
+				41FB66031A05524300C52848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41FB66041A05524300C52848 /* Build configuration list for PBXNativeTarget "Depo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41FB66051A05524300C52848 /* Debug */,
+				41FB66061A05524300C52848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		41FB66071A05524300C52848 /* Build configuration list for PBXNativeTarget "DepoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41FB66081A05524300C52848 /* Debug */,
+				41FB66091A05524300C52848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41FB65E81A05524200C52848 /* Depo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41FB65E91A05524200C52848 /* Depo.xcdatamodel */,
+			);
+			currentVersion = 41FB65E91A05524200C52848 /* Depo.xcdatamodel */;
+			path = Depo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 41FB65D61A05524200C52848 /* Project object */;
+}
