@@ -60,7 +60,7 @@
 
     
     //timer to refresh bitcoin value
-    countdownCounter = 3;
+    countdownCounter = 1;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
     
     //text field mechanics - USD amount shows conversion to BTC
@@ -68,6 +68,9 @@
     tap = [[UITapGestureRecognizer alloc]
            initWithTarget:self
            action:@selector(dismissKeyboard)];
+    [self.amountField addTarget:self
+                  action:@selector(textFieldDidChange)
+        forControlEvents:UIControlEventEditingChanged];
 }
 
 #pragma mark - Text Field Mechanics
@@ -76,11 +79,22 @@
     [self.view addGestureRecognizer:tap];
 }
 
+-(void)textFieldDidChange {
+    [self updateConversionPrice];
+}
+
 -(void)dismissKeyboard {
     [self.amountField resignFirstResponder];
-    float typedAmount = [self.amountField.text floatValue];
-    self.conversionLabel.text = [NSString stringWithFormat:@"= %.03f BTC", typedAmount/bitcoinPrice];
     [self.view removeGestureRecognizer:tap];
+}
+
+-(void)updateConversionPrice {
+    if([self.amountField.text isEqual:@"0"] || [self.amountField.text isEqual:@" "]){
+        self.amountField.text = @"";
+    } else {
+        float typedAmount = [self.amountField.text floatValue];
+        self.conversionLabel.text = [NSString stringWithFormat:@"= %.03f BTC", typedAmount/bitcoinPrice];
+    }
 }
 
 #pragma mark - Update bitcoin price
@@ -106,8 +120,6 @@
         }
     }];
 }
-
-
 
 #pragma mark - Buttons
 
