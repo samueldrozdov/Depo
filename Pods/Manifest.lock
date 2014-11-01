@@ -1,0 +1,10 @@
+PODS:
+  - Chain (0.1.16)
+
+DEPENDENCIES:
+  - Chain (= 0.1.16)
+
+SPEC CHECKSUMS:
+  Chain: a20fb07e064c2d0b5dda409c6333f5aba6df1c6c
+
+COCOAPODS: 0.34.4
