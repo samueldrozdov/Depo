@@ -25,7 +25,6 @@ extern NSString *const PayPalEnvironmentSandbox;
 extern NSString *const PayPalEnvironmentNoNetwork;
 
 @interface PayPalMobile : NSObject
-
 /// You MUST call this method to initialize the PayPal Mobile SDK.
 ///
 /// The PayPal Mobile SDK can operate in different environments to facilitate development and testing.
@@ -35,8 +34,8 @@ extern NSString *const PayPalEnvironmentNoNetwork;
 /// For example,
 ///  @{PayPalEnvironmentProduction : @"my-client-id-for-Production",
 ///    PayPalEnvironmentSandbox : @"my-client-id-for-Sandbox"}
-+ (void)initializeWithClientIdsForEnvironments:(NSDictionary *)clientIdsForEnvironments;
 
++ (void)initializeWithClientIdsForEnvironments:(NSDictionary *)clientIdsForEnvironments;
 /// You MUST preconnect to PayPal to prepare the device for processing payments.
 /// This improves the user experience because it allows the PayPal Mobile SDK to make its
 /// setup request early and in the background.
@@ -51,8 +50,8 @@ extern NSString *const PayPalEnvironmentNoNetwork;
 /// @param environment
 /// The PayPal Mobile SDK can operate in different environments to facilitate development and testing.
 /// See PayPalEnvironmentProduction, PayPalEnvironmentSandbox, PayPalEnvironmentNoNetwork for more details.
-+ (void)preconnectWithEnvironment:(NSString *)environment;
 
++ (void)preconnectWithEnvironment:(NSString *)environment;
 /// Once a user has consented to future payments, when the user subsequently initiates a PayPal payment
 /// from their device to be completed by your server, PayPal uses a Correlation ID to verify that the
 /// payment is originating from a valid, user-consented device+application.
@@ -64,8 +63,8 @@ extern NSString *const PayPalEnvironmentNoNetwork;
 /// The PayPal Mobile SDK can operate in different environments to facilitate development and testing.
 /// See PayPalEnvironmentProduction, PayPalEnvironmentSandbox, PayPalEnvironmentNoNetwork for more details.
 /// @return applicationCorrelationID Your server will send this to PayPal in a 'Paypal-Application-Correlation-Id' header.
-+ (NSString *)applicationCorrelationIDForEnvironment:(NSString *)environment;
 
++ (NSString *)applicationCorrelationIDForEnvironment:(NSString *)environment;
 /// Delete all previously remembered user data (credit card, email, phone, PayPal account),
 /// for all environments. (See PayPalEnvironmentProduction, PayPalEnvironmentSandbox, PayPalEnvironmentNoNetwork.)
 ///
