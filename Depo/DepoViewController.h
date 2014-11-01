@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DepoViewController.h
 //  Depo
 //
 //  Created by Samuel Drozdov on 11/1/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DepoViewController : UIViewController
 
 @end
-

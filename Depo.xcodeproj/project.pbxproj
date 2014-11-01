@@ -10,11 +10,11 @@
 		41FB65E41A05524200C52848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E31A05524200C52848 /* main.m */; };
 		41FB65E71A05524200C52848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E61A05524200C52848 /* AppDelegate.m */; };
 		41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E81A05524200C52848 /* Depo.xcdatamodeld */; };
-		41FB65ED1A05524200C52848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65EC1A05524200C52848 /* ViewController.m */; };
 		41FB65F01A05524200C52848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65EE1A05524200C52848 /* Main.storyboard */; };
 		41FB65F21A05524200C52848 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65F11A05524200C52848 /* Images.xcassets */; };
 		41FB65F51A05524200C52848 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FB65F31A05524200C52848 /* LaunchScreen.xib */; };
 		41FB66011A05524300C52848 /* DepoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB66001A05524300C52848 /* DepoTests.m */; };
+		41FB660C1A055A2C00C52848 /* DepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB660B1A055A2C00C52848 /* DepoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +34,14 @@
 		41FB65E51A05524200C52848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		41FB65E61A05524200C52848 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		41FB65E91A05524200C52848 /* Depo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Depo.xcdatamodel; sourceTree = "<group>"; };
-		41FB65EB1A05524200C52848 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		41FB65EC1A05524200C52848 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		41FB65EF1A05524200C52848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41FB65F11A05524200C52848 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		41FB65F41A05524200C52848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		41FB65FA1A05524300C52848 /* DepoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DepoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FB65FF1A05524300C52848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41FB66001A05524300C52848 /* DepoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepoTests.m; sourceTree = "<group>"; };
+		41FB660A1A055A2C00C52848 /* DepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepoViewController.h; sourceTree = "<group>"; };
+		41FB660B1A055A2C00C52848 /* DepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 			children = (
 				41FB65E51A05524200C52848 /* AppDelegate.h */,
 				41FB65E61A05524200C52848 /* AppDelegate.m */,
-				41FB65EB1A05524200C52848 /* ViewController.h */,
-				41FB65EC1A05524200C52848 /* ViewController.m */,
+				41FB660A1A055A2C00C52848 /* DepoViewController.h */,
+				41FB660B1A055A2C00C52848 /* DepoViewController.m */,
 				41FB65EE1A05524200C52848 /* Main.storyboard */,
 				41FB65F11A05524200C52848 /* Images.xcassets */,
 				41FB65F31A05524200C52848 /* LaunchScreen.xib */,
@@ -224,7 +224,7 @@
 			files = (
 				41FB65E71A05524200C52848 /* AppDelegate.m in Sources */,
 				41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */,
-				41FB65ED1A05524200C52848 /* ViewController.m in Sources */,
+				41FB660C1A055A2C00C52848 /* DepoViewController.m in Sources */,
 				41FB65E41A05524200C52848 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
