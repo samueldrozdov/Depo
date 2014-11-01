@@ -18,4 +18,26 @@
     return sharedMyManager;
 }
 
+
+-(void) postPayment:(NSData*)payment{
+    NSURL *url = [NSURL URLWithString: @"https://api.paypal.com/v1/payments/payment"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    NSError *error = nil;
+   // NSData *data = [NSJSONSerialization dataWithJSONObject:payment options:kNilOptions error:&error];
+    if(!error){
+        NSURLSessionUploadTask *uploadTask = [urlSession uploadTaskWithRequest:request fromData:payment completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSLog(@"payment successful");
+            
+            
+        }];
+        [uploadTask resume];
+        
+    }
+    
+}
+
 @end

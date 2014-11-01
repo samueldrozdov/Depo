@@ -7,6 +7,8 @@
 //
 
 #import "DepoViewController.h"
+#import "PayPalPayment.h"
+#import "ServerRequest.h"
 
 @interface DepoViewController ()
 
@@ -30,6 +32,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+ 
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.paypal.com/v1/payments/payment"]];
+   
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"GET"];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        NSLog(@"response:%ld",(long)responseStatusCode);
+        if(responseStatusCode==200 &&data){
+            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]; //list of dictionaries
+            NSLog(@"downloaded:%@",downloadedJSON);
+        }
+    }];
+    [dataTask resume];
 
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
@@ -180,11 +203,16 @@
 
 - (void)sendCompletedPaymentToServer:(PayPalPayment *)completedPayment {
     // TODO: Send completedPayment.confirmation to server
-    NSLog(@"Here is your proof of payment:\n\n%@\n\nSend this to your server for confirmation and fulfillment.", completedPayment.confirmation);
+    NSLog(@"Here is your proof of payment:\n\n%@\n\n Send this to your server for confirmation and fulfillment.", completedPayment.confirmation);
     
     NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
                                                            options:0
                                                              error:nil];
+    
+    ServerRequest *paymentRequest = [ServerRequest sharedManager];
+    [paymentRequest postPayment:confirmation];
+    
+    
 }
 
 

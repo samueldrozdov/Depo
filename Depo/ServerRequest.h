@@ -10,4 +10,5 @@
 
 @interface ServerRequest : NSObject
 + (id)sharedManager;
+-(void) postPayment:(NSData*)payment;
 @end
