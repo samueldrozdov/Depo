@@ -30,7 +30,7 @@
     countdownCounter = 3;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
     
-    //text field mechanics
+    //text field mechanics - USD amount shows conversion to BTC
     self.amountField.delegate = self;
     tap = [[UITapGestureRecognizer alloc]
            initWithTarget:self
