@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DepoViewController : UIViewController
+@interface DepoViewController : UIViewController <UITextFieldDelegate>
 
 @end
