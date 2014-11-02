@@ -111,6 +111,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="246" y="322"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Okm-k5-KrH">
+            <objects>
+                <viewController id="Fnx-K4-Cxd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WCP-Ro-dNc"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Af-zP-agI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OMY-SQ-dPY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVM-Bf-ZBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="322"/>
         </scene>
         <!--History-->
         <scene sceneID="Ecw-Nc-PUP">
@@ -133,7 +152,13 @@
                             <outlet property="delegate" destination="yKx-e6-ftU" id="2Uf-IL-dHb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="dLo-1N-gkm"/>
+                    <navigationItem key="navigationItem" title="History" id="dLo-1N-gkm">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hxq-nl-3g8">
+                            <connections>
+                                <segue destination="Fnx-K4-Cxd" kind="show" id="TaW-vC-ORy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agz-Wi-FEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
