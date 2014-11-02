@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userBitcoinPublicKeyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLabel;
 
 // Paypal
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
@@ -63,7 +64,6 @@
     self.successView.hidden = YES; //animation for when payment is successful
     self.environment = PayPalEnvironmentSandbox;
 
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,15 +77,14 @@
     countdownCounter = 1;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
     
+
     //text field mechanics - USD amount shows conversion to BTC
     self.amountField.delegate = self;
     self.userBitcoinPublicKeyTextField.delegate = self;
-    tap = [[UITapGestureRecognizer alloc]
-           initWithTarget:self
-           action:@selector(dismissKeyboard)];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.amountField addTarget:self
-                  action:@selector(textFieldDidChange)
-        forControlEvents:UIControlEventEditingChanged];
+                         action:@selector(textFieldDidChange)
+               forControlEvents:UIControlEventEditingChanged];
 }
 
 #pragma mark - Text Field Mechanics
@@ -131,6 +130,9 @@
         } else {
             NSDictionary *spotPrice = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             bitcoinPrice = [[spotPrice objectForKey:@"amount"] floatValue];
+            
+            //label mechanics - shows price of bitcoin to USD
+            _bitcoinPriceLabel.text = [NSString stringWithFormat:@"1 BTC = $%.2f", bitcoinPrice];
         }
     }];
 }
