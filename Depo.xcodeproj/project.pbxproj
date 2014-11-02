@@ -28,6 +28,7 @@
 		4D322DC71A0581C300014992 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D322DC61A0581C300014992 /* ServerRequest.m */; };
 		4D876B071A068599007AD48C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D876B061A068599007AD48C /* User.m */; };
 		4D876B0A1A0687FA007AD48C /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D876B091A0687FA007AD48C /* FriendsTableViewController.m */; };
+		4D876B0D1A069EEF007AD48C /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D876B0C1A069EEF007AD48C /* Transaction.m */; };
 		D5B3AF2A1A065DD100FAA71D /* BlockChainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B3AF291A065DD100FAA71D /* BlockChainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		4D876B061A068599007AD48C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4D876B081A0687FA007AD48C /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
 		4D876B091A0687FA007AD48C /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		4D876B0B1A069EEF007AD48C /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		4D876B0C1A069EEF007AD48C /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		8A5FCB45AF93A430579A3FA0 /* Pods-Depo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Depo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Depo/Pods-Depo.debug.xcconfig"; sourceTree = "<group>"; };
 		D5B3AF281A065DD100FAA71D /* BlockChainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockChainViewController.h; sourceTree = "<group>"; };
 		D5B3AF291A065DD100FAA71D /* BlockChainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockChainViewController.m; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				41FB65F11A05524200C52848 /* Images.xcassets */,
 				41FB65F31A05524200C52848 /* LaunchScreen.xib */,
 				41FB65E81A05524200C52848 /* Depo.xcdatamodeld */,
+				4D876B0B1A069EEF007AD48C /* Transaction.h */,
+				4D876B0C1A069EEF007AD48C /* Transaction.m */,
 				4D876B051A068599007AD48C /* User.h */,
 				4D876B061A068599007AD48C /* User.m */,
 				41FB65E11A05524200C52848 /* Supporting Files */,
@@ -366,6 +371,7 @@
 				41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */,
 				41FB660C1A055A2C00C52848 /* DepoViewController.m in Sources */,
 				41FB65E41A05524200C52848 /* main.m in Sources */,
+				4D876B0D1A069EEF007AD48C /* Transaction.m in Sources */,
 				D5B3AF2A1A065DD100FAA71D /* BlockChainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

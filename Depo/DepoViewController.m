@@ -10,6 +10,8 @@
 #import "PayPalPayment.h"
 #import "ServerRequest.h"
 #import <Chain.h>
+#import "Transaction.h"
+#import "AppDelegate.h"
 
 @interface DepoViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *transactionLabel;
@@ -230,13 +232,18 @@
     NSString *toPublicKey = self.userBitcoinPublicKeyTextField.text;
     NSString *amount = self.amountField.text;
     __block NSString* prepString;
-    NSString *preString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=";
+    NSInteger amountInt = [amount intValue];
+    float convertedAmount = (amountInt / bitcoinPrice) * 100000000;
+    NSString *roundedAmount = [NSString stringWithFormat:@"%d", (int) convertedAmount];
+    NSLog(@"converted:%@",roundedAmount);
+    
+    NSString *template = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=";
     if(toPublicKey.length ==0){
         NSLog(@"default");
-        prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
+        prepString = [NSString stringWithFormat: @"%@%@&amount=%@",template,@"1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq",roundedAmount];
     }
     else{
-        prepString = [NSString stringWithFormat:@"%@%@&amount=100000",preString,toPublicKey];
+        prepString = [NSString stringWithFormat:@"%@%@&amount=%@",template,toPublicKey,roundedAmount];
     }
     //webview code
     //NSString *fullURL = @"http://conecode.com";
@@ -257,8 +264,19 @@
     NSString *hash = [results objectForKey:@"tx_hash"];
     self.transactionLabel.text = message;
     self.transactionHashLabel.text = hash;
-    self.transactionLabel.hidden=NO;
-    self.transactionHashLabel.hidden=YES;
+    
+    NSManagedObjectContext *managedObjectContext = ((AppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
+    Transaction *txn = [NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:managedObjectContext];
+    txn.message = message;
+    txn.transHash=hash;
+    txn.date = [NSDate date];
+    //instantiate Candy object
+    
+    [managedObjectContext save:&error]; //save the context and save to server
+    //if it couldn't save
+    if (![managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
     
     
 }

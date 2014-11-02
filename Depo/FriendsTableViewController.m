@@ -41,11 +41,6 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - Table view data source
 
@@ -61,7 +56,7 @@
 }
 - (IBAction)add:(id)sender {
     NSLog(@"called once");
-    if(self.nameField.text!=nil && self.publicKeyField.text!=nil){
+    if(self.nameField.text.length>0 && self.publicKeyField.text.length>0){
         NSManagedObjectContext *managedObjectContext = ((AppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
         User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedObjectContext];
         newUser.name = self.nameField.text;
