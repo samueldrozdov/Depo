@@ -9,6 +9,7 @@
 #import "DepoViewController.h"
 #import "PayPalPayment.h"
 #import "ServerRequest.h"
+#import <Chain.h>
 
 @interface DepoViewController ()
 
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) NSString * userBitcoinPublicKey;
 @property (assign, nonatomic) float  sentAmount;
 
+@property (strong, nonatomic) NSString * hashstring;
 
 @end
 
@@ -37,12 +39,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
     
     self.userBitcoinPublicKey = [NSString new];
 
-=======
->>>>>>> 17a51f24f500b1b75d76e950ec50ea653fc0ad02
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
     
@@ -264,13 +263,83 @@
     
     //Master private key :044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678
     
-    NSString *preloadedMasterPrivateKey = @"044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678";
+//    NSString *preloadedMasterPrivateKey = @"044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678";
     
     float predefinedSendAmount = 0.001;
     
+    Chain *chain = [Chain sharedInstanceWithToken:@"b488bbdb6cb7fd80058b705fdeaac951"];
+    
+    [[Chain sharedInstance] setBlockChain:@"testnet3"];
     
     
     
+    
+    
+//    [chain getAddressTransactions:preloadedUserPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
+//        if (error)
+//        {
+//            NSLog(@"Chain error: %@", error);
+//        }
+//        else
+//        {
+//            NSArray * result = [dictionary objectForKey:@"results"];
+//            
+//            self.hashstring = [[result firstObject] objectForKey:@"hash"];
+//            
+//            NSLog(@"HASH %@", self.hashstring);
+//            
+//        }
+//    }];
+//    
+//    [chain getAddressUnspents:preloadedMasterPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error){
+//        if(error) {
+//            NSLog(@"error at AddressUnspents: %@", error);
+//        } else {
+//            NSArray *results = [dictionary objectForKey:@"results"];
+//             NSString *transactionHash = [[results firstObject] objectForKey:@"transaction_hash"];
+//            
+//            NSLog(@"UNSPENTS Transaction hash: %@", transactionHash);
+//            
+//            [chain getTransaction:transactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
+//                if(error) {
+//                    NSLog(@"error at getTransaction: %@", error);
+//                } else {
+//                    
+//                    NSLog(@"Transaction: %@", dictionary);
+//                    
+//                    /*
+//                    NSString *realTransactionHash = [[dictionary objectForKey:@"outputs"] firstObject];
+//                    NSLog(@"Real Transaction Hash: %@", realTransactionHash);
+//                    
+//                    [chain getTransactionOpReturn:realTransactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
+//                        if(error) {
+//                            NSLog(@"error at transactionOpReturn: %@", error);
+//                        } else {
+//                            
+//                            NSLog(@"TransactionOpReturn %@", dictionary);
+//                        }
+//                        
+//                        
+//                    }];
+//                     */
+//                    
+//                }
+//            }];
+//            
+//            [chain getTransactionOpReturn:transactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
+//                if(error) {
+//                    NSLog(@"error at transactionOpReturn: %@", error);
+//                } else {
+//                    
+//                    NSLog(@"TransactionOpReturn %@", dictionary);
+//                }
+//                
+//                
+//            }];
+//        }
+//    }];
+
+
     
     
 }
