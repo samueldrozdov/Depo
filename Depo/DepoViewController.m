@@ -12,6 +12,8 @@
 #import <Chain.h>
 
 @interface DepoViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *transactionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *transactionHashLabel;
 
 // UI Elements
 @property(nonatomic, strong, readwrite) IBOutlet UIView *successView;
@@ -69,6 +71,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.userBitcoinPublicKeyTextField.text = self.publicKey;
+    self.transactionLabel.hidden=NO;
+    self.transactionHashLabel.hidden=NO;
     
     // Preconnect to PayPal early
     [PayPalMobile preconnectWithEnvironment:self.environment];
@@ -224,9 +228,11 @@
     
     NSLog(@"start Bitcoin transcation");
     NSString *toPublicKey = self.userBitcoinPublicKeyTextField.text;
+    NSString *amount = self.amountField.text;
     __block NSString* prepString;
     NSString *preString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=";
-    if(!toPublicKey){
+    if(toPublicKey.length ==0){
+        NSLog(@"default");
         prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
     }
     else{
@@ -248,6 +254,12 @@
     NSMutableDictionary *results = (NSMutableDictionary*) response;
     NSLog(@"results:%@",results);
     NSString *message = [results objectForKey:@"message"];
+    NSString *hash = [results objectForKey:@"tx_hash"];
+    self.transactionLabel.text = message;
+    self.transactionHashLabel.text = hash;
+    self.transactionLabel.hidden=NO;
+    self.transactionHashLabel.hidden=YES;
+    
     
 }
 
