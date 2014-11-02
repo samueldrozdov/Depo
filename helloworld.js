@@ -1,15 +1,21 @@
 var chain = require('chain-node')
 var bitcoin = require('bitcoinjs-lib')
-var check =  require('bs58check')
-var ecure = require('ecurve')
-var bigi = require('bigi')
+var bitcoin = require('./src/index.js')
+
 //var bitcoin = require('./src/index.js')
 
 // The Chain API will never accept your private key.
 // Keep the private key stored in a safe place alongside
 // your program.  
-var privateKey = "044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678";
+
+chain.blockChain = 'testnet3';
+
+var privateKey = bitcoin.ECKey("044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678");
+
+
+
 //var wif = privateKey.toWIF()
+
 //console.log('wif' + wif);
 
 //key = bitcoin.ECKey.makeRandom()
@@ -37,11 +43,14 @@ txn.addOutput("moXoEC6RoMhdmqgtJxh5zWY5RDvXNpPE7t", 80000)
 // stored safely along side this program. The Chain API will
 // never read your private key.
 console.log("part 4");
+
 txn.sign(0, privateKey)
+
 console.log('YESSSSS');
+
 // Once we have created the transaction. Sending it to
 // the Chain API is as simple as a single function call.
-chain.sendTransaction(txn.serializeHex(), function(err, resp) {
+chain.sendTransaction(txn.toHex(), function(err, resp) {
   console.log('Error: ' + err);
   console.log('Resp: ' + resp.message);
 });
