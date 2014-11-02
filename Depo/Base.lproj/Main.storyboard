@@ -47,7 +47,6 @@
                                     <constraint firstAttribute="height" constant="150" id="0hn-Rc-KWM"/>
                                 </constraints>
                             </view>
-
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enter amount" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-G6-Kjb">
                                 <rect key="frame" x="225" y="200" width="150" height="30"/>
                                 <constraints>
