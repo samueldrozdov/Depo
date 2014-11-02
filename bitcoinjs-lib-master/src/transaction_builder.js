@@ -235,6 +235,7 @@ TransactionBuilder.prototype.sign = function(index, privKey, redeemScript, hashT
 
   } else {
     prevOutScript = prevOutScript || privKey.pub.getAddress().toOutputScript()
+
     prevOutType = prevOutType || 'pubkeyhash'
 
     assert.notEqual(prevOutType, 'scripthash', 'PrevOutScript is P2SH, missing redeemScript')
