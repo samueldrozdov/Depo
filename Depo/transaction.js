@@ -27,10 +27,12 @@
 // never read your private key.
 //txn.sign(0, key)
  
-console.log('YESSSSS');
+//console.log('YESSSSS');
 // Once we have created the transaction. Sending it to
 // the Chain API is as simple as a single function call.
 //chain.sendTransaction(txn.serializeHex(), function(err, resp) {
  // console.log('Error: ' + err);
- // console.log('Resp: ' + resp.message);
+//  console.log('Resp: ' + resp.message);
 //});
+
+console.log("haha")
