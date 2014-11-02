@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *walletInstructionLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
 
 // Paypal
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
@@ -56,8 +58,6 @@
     _payPalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
     _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
     _payPalConfig.rememberUser=YES;
-    
-    
     _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -141,51 +141,68 @@
 
 - (IBAction)sendTapped:(id)sender {
     
-    self.userBitcoinPublicKey  = [self.userBitcoinPublicKeyTextField.text copy];
-    self.sentAmount = [self.amountField.text floatValue];
-
+    //api prep code
+    //NSString *userWalletPublicKey = _userKeyAddressTextField.text;
+    NSString *amount = self.amountField.text;
     
-    NSLog(@"User Public key: %@\nSent amount: %f", self.userBitcoinPublicKey, self.sentAmount);
+    //NSString *prepString = [NSString stringWithFormat:@"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E1  82986ZNze8&to= %@ &amount= %@", userWalletPublicKey, amount];
     
-
-    // Remove our last completed payment, just for demo purposes.
-    self.resultText = nil;
-    PayPalItem *item1 = [PayPalItem itemWithName:@"Bitcoin Transaction"
-                                    withQuantity:1
-                                       withPrice:[NSDecimalNumber decimalNumberWithString:self.amountField.text]
-                                    withCurrency:@"USD"
-                                         withSku:@"Hip-00037"];
-    NSArray *items = @[item1];
-    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
+    NSString *prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
+    //webview code
+    //NSString *fullURL = @"http://conecode.com";
+    //NSURL *url = [NSURL URLWithString:fullURL];
     
-    // Optional: include payment details
-    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0"];
-    NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"0"];
-    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
-                                                                               withShipping:shipping
-                                                                                    withTax:tax];
+    NSURL *url = [NSURL URLWithString:prepString];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.webview loadRequest:requestObj];
     
-    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
-    
-    PayPalPayment *payment = [[PayPalPayment alloc] init];
-    payment.amount = total;
-    payment.currencyCode = @"USD";
-    payment.shortDescription = @"Bitcoin Transaction";
-    payment.items = items;  // if not including multiple items, then leave payment.items as nil
-    payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
-    payment.intent = PayPalPaymentIntentSale;
-    
-    if (!payment.processable) {
-        
-    }
-    
-    // Update payPalConfig re accepting credit cards.
-    self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
-    
-    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
-                                                                                                configuration:self.payPalConfig
-                                                                                                     delegate:self];
-    [self presentViewController:paymentViewController animated:YES completion:nil];
+    /*
+//    self.userBitcoinPublicKey  = [self.userBitcoinPublicKeyTextField.text copy];
+//    self.sentAmount = [self.amountField.text floatValue];
+//
+//    
+//    NSLog(@"User Public key: %@\nSent amount: %f", self.userBitcoinPublicKey, self.sentAmount);
+//    
+//
+//    // Remove our last completed payment, just for demo purposes.
+//    self.resultText = nil;
+//    PayPalItem *item1 = [PayPalItem itemWithName:@"Bitcoin Transaction"
+//                                    withQuantity:1
+//                                       withPrice:[NSDecimalNumber decimalNumberWithString:self.amountField.text]
+//                                    withCurrency:@"USD"
+//                                         withSku:@"Hip-00037"];
+//    NSArray *items = @[item1];
+//    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
+//    
+//    // Optional: include payment details
+//    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0"];
+//    NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"0"];
+//    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
+//                                                                               withShipping:shipping
+//                                                                                    withTax:tax];
+//    
+//    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
+//    
+//    PayPalPayment *payment = [[PayPalPayment alloc] init];
+//    payment.amount = total;
+//    payment.currencyCode = @"USD";
+//    payment.shortDescription = @"Bitcoin Transaction";
+//    payment.items = items;  // if not including multiple items, then leave payment.items as nil
+//    payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
+//    payment.intent = PayPalPaymentIntentSale;
+//    
+//    if (!payment.processable) {
+//        
+//    }
+//    
+//    // Update payPalConfig re accepting credit cards.
+//    self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
+//    
+//    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
+//                                                                                                configuration:self.payPalConfig
+//                                                                                                     delegate:self];
+//    [self presentViewController:paymentViewController animated:YES completion:nil];
+*/
 }
 
 
@@ -376,6 +393,5 @@
     
     
 }
-
 
 @end

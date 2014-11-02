@@ -2,33 +2,23 @@ var chain = require('chain-node');
 var bitcoin = require('bitcoinjs-lib');
 var bitcoin = require('./src/index.js')
 
+//bitcore
+var bitcore = require('bitcore');
+var Address = bitcore.Address;
+var Transaction = bitcore.Transaction;
+var PeerManager = bitcore.PeerManager;
+
 // The Chain API will never accept your private key.
 // Keep the private key stored in a safe place alongside
 // your program.
-//
 
+privateKey = "191qw91SzLGNzjDGbPiiAbKkZEKpVvQxWV";
 
-
-privateKey = "044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678";
-
-
-wifKey = privateKey.toWIF();
+//wifKey = privateKey.toWIF();
 //privateKey = bitcoin.ECKey.makeRandom()
-console.log(wifKey)
-
+//console.log(wifKey)
 
 chain.blockChain = 'testnet3';
-
-
-//var wif = privateKey.toWIF()
-//console.log('wif' + wif);
-
-//key = bitcoin.ECKey.makeRandom()
-//console.log(key.toWIF())
-//console.log(key.pub.getAddress().toString())
-
-
-//var key = new bitcoin.ECKey.fromWIF(wif)
 
 var txn = new bitcoin.Transaction()
 console.log('part 1');
@@ -53,9 +43,11 @@ txn.addOutput("moXoEC6RoMhdmqgtJxh5zWY5RDvXNpPE7t", 9980000)
 // never read your private key.
 console.log("part 4");
 
-newKey = new bitcoin.ECKey.fromWIF(wifKey)
+//newKey = new bitcoin.ECKey.fromWIF(wifKey)
+//txn.sign(0, privateKey)
 
-txn.sign(0, newKey)
+// Transaction ready for broadcast.
+broadcast(tx.serialize().toString('hex'));
 
 console.log('YESSSSS');
 // Once we have created the transaction. Sending it to

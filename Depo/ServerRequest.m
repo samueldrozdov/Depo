@@ -21,7 +21,7 @@
 }
 
 
--(BOOL) postPayment:(NSData*)payment{
+- (BOOL)postPayment:(NSData*)payment{
     PayPalComplete=NO;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     NSURL *url = [NSURL URLWithString: @"https://api.paypal.com/v1/payments/payment"];
@@ -37,15 +37,15 @@
             NSLog(@"payment successful");
             PayPalComplete = YES;
             
-             dispatch_semaphore_signal(semaphore);
-            
+            dispatch_semaphore_signal(semaphore);
         }];
         [uploadTask resume];
-        
     }
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     NSLog(@"Pay:%d",PayPalComplete);
     return PayPalComplete;
 }
+
+
 
 @end
