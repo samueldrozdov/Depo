@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol selectedUserDelegate
+-(void)selectedUser:(NSString*)publicKey;
+@end
 
-@interface FriendsTableViewController : UITableViewController
-@property (nonatomic, strong) NSMutableArray *userInfo;
+@interface FriendsTableViewController : UITableViewController<selectedUserDelegate>
+@property (strong, nonatomic) id <selectedUserDelegate> delegate;
 
 @end

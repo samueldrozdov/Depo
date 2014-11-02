@@ -11,4 +11,5 @@
 @implementation User
 @dynamic name;
 @dynamic publicKey;
+@dynamic usersDictionary;
 @end

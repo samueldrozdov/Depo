@@ -11,5 +11,5 @@
 @interface User : NSManagedObject
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString* publicKey;
-
+@property (nonatomic, retain) NSDictionary *usersDictionary;
 @end

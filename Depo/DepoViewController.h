@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PayPalMobile.h"
 #import "PayPalConfiguration.h"
+#import "FriendsTableViewController.h"
 
 @class PayPalPaymentViewController;
 typedef void (^PayPalPaymentDelegateCompletionBlock)(void);
@@ -31,11 +32,13 @@ typedef void (^PayPalPaymentDelegateCompletionBlock)(void);
 
 
 
-@interface DepoViewController : UIViewController<PayPalPaymentDelegate,UITextFieldDelegate>
+@interface DepoViewController : UIViewController<PayPalPaymentDelegate,UITextFieldDelegate,selectedUserDelegate>
 
 @property(nonatomic, strong, readwrite) NSString *environment;
 @property(nonatomic, assign, readwrite) BOOL acceptCreditCards;
 @property(nonatomic, strong, readwrite) NSString *resultText;
+@property (nonatomic, strong) NSString *publicKey;
+
 
 - (instancetype)initWithPayment:(PayPalPayment *)payment
                   configuration:(PayPalConfiguration *)configuration

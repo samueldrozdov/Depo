@@ -19,9 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *userBitcoinPublicKeyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *walletInstructionLabel;
-@property (weak, nonatomic) IBOutlet UIWebView *webview;
+
 
 // Paypal
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
@@ -68,6 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    self.userBitcoinPublicKeyTextField.text = self.publicKey;
     
     // Preconnect to PayPal early
     [PayPalMobile preconnectWithEnvironment:self.environment];
@@ -130,9 +131,6 @@
         } else {
             NSDictionary *spotPrice = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             bitcoinPrice = [[spotPrice objectForKey:@"amount"] floatValue];
-            
-            //label mechanics - shows price of bitcoin to USD
-            _bitcoinPriceLabel.text = [NSString stringWithFormat:@"1 BTC = $%.2f", bitcoinPrice];
         }
     }];
 }
@@ -268,12 +266,6 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-}
 
 - (IBAction)mockSend:(id)sender {
     
@@ -293,31 +285,7 @@
     
     [[Chain sharedInstance] setBlockChain:@"testnet3"];
     
-    
-    
-//    [chain getAddress:preloadedUserPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
-//      
-//        if (error)
-//        {
-//            NSLog(@"Chain error: %@", error);
-//        }
-//        
-//        else
-//        {
-//            NSArray * result = [dictionary objectForKey:@"results"];
-//            
-//            
-//            //self.hashstring is the previous transaction hash
-//            
-//            NSString *tempAddressHash = [[result firstObject] objectForKey:@"address"];
-//            
-//            NSLog(@"%@", dictionary);
-//            
-//        }
-//
-//        
-//        
-//    }];
+
     
     [chain getAddressTransactions: preloadedMasterPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
         if (error)
@@ -339,58 +307,24 @@
     }];
     
     
-//
-//    [chain getAddressUnspents:preloadedMasterPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error){
-//        if(error) {
-//            NSLog(@"error at AddressUnspents: %@", error);
-//        } else {
-//            NSArray *results = [dictionary objectForKey:@"results"];
-//             NSString *transactionHash = [[results firstObject] objectForKey:@"transaction_hash"];
-//            
-//            NSLog(@"UNSPENTS Transaction hash: %@", transactionHash);
-//            
-//            [chain getTransaction:transactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
-//                if(error) {
-//                    NSLog(@"error at getTransaction: %@", error);
-//                } else {
-//                    
-//                    NSLog(@"Transaction: %@", dictionary);
-//                    
-//                    /*
-//                    NSString *realTransactionHash = [[dictionary objectForKey:@"outputs"] firstObject];
-//                    NSLog(@"Real Transaction Hash: %@", realTransactionHash);
-//                    
-//                    [chain getTransactionOpReturn:realTransactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
-//                        if(error) {
-//                            NSLog(@"error at transactionOpReturn: %@", error);
-//                        } else {
-//                            
-//                            NSLog(@"TransactionOpReturn %@", dictionary);
-//                        }
-//                        
-//                        
-//                    }];
-//                     */
-//                    
-//                }
-//            }];
-//            
-//            [chain getTransactionOpReturn:transactionHash completionHandler:^(NSDictionary *dictionary, NSError *error){
-//                if(error) {
-//                    NSLog(@"error at transactionOpReturn: %@", error);
-//                } else {
-//                    
-//                    NSLog(@"TransactionOpReturn %@", dictionary);
-//                }
-//                
-//                
-//            }];
-//        }
-//    }];
 
 
-    
-    
+}
+- (IBAction)showAddressBook:(id)sender {
+    [self performSegueWithIdentifier:@"showAddressBook" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"showAddressBook"]){
+        FriendsTableViewController *other = [segue destinationViewController];
+        other.delegate = self;
+                                    
+    }
+}
+
+-(void)selectedUser:(NSString *)publicKey{
+    NSLog(@"called!!!");
+    self.userBitcoinPublicKeyTextField.text=publicKey;
 }
 
 @end
