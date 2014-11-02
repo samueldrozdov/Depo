@@ -13,10 +13,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *amountField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property(nonatomic, strong, readwrite) IBOutlet UIView *successView;
+@property (weak, nonatomic) IBOutlet UITextField *userBitcoinPublicKeyTextField;
 
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
 
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
+
+
+@property (strong, nonatomic) NSString * userBitcoinPublicKey;
+@property (assign, nonatomic) float  sentAmount;
 
 
 @end
@@ -30,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.userBitcoinPublicKey = [NSString new];
 
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
@@ -65,6 +72,7 @@
     
     //text field mechanics - USD amount shows conversion to BTC
     self.amountField.delegate = self;
+    self.userBitcoinPublicKeyTextField.delegate = self;
     tap = [[UITapGestureRecognizer alloc]
            initWithTarget:self
            action:@selector(dismissKeyboard)];
@@ -93,7 +101,7 @@
         self.amountField.text = @"";
     } else {
         float typedAmount = [self.amountField.text floatValue];
-        self.conversionLabel.text = [NSString stringWithFormat:@"= %.03f BTC", typedAmount/bitcoinPrice];
+        self.conversionLabel.text = [NSString stringWithFormat:@"= %0.4f BTC", typedAmount/bitcoinPrice];
     }
 }
 
@@ -124,6 +132,13 @@
 #pragma mark - Buttons
 
 - (IBAction)sendTapped:(id)sender {
+    
+    self.userBitcoinPublicKey  = [self.userBitcoinPublicKeyTextField.text copy];
+    self.sentAmount = [self.amountField.text floatValue];
+
+    
+    NSLog(@"User Public key: %@\nSent amount: %f", self.userBitcoinPublicKey, self.sentAmount);
+    
 
     // Remove our last completed payment, just for demo purposes.
     self.resultText = nil;
@@ -217,6 +232,27 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+- (IBAction)mockSend:(id)sender
+{
+    
+    //User public key : n2Q1BDERQ7voY4uzUYUQZNdHUsFwfw59ze
+    NSString *preloadedUserPublicKey = @"n2Q1BDERQ7voY4uzUYUQZNdHUsFwfw59ze";
+    
+    //Master public key : moXoEC6RoMhdmqgtJxh5zWY5RDvXNpPE7t
+    NSString *preloadedMasterPublicKey = @"moXoEC6RoMhdmqgtJxh5zWY5RDvXNpPE7t";
+    
+    //Master private key :044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678
+    
+    NSString *preloadedMasterPrivateKey = @"044015ed16d308b54d5b213324abb3c3c7e54339b8cbda040fd4f7a1cf2e9c77aff26947bac96f7de1ac327131ea24ff3d8bbba85c9f336873b43c154005e4f678";
+    
+    float predefinedSendAmount = 0.001;
+    
+    
+    
+    
+    
+    
 }
 
 
