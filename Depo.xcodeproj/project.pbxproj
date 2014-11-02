@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1FC5F0FD4DCE687C15FB385B /* libPods-Depo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE41EEDC048815D5647B40D2 /* libPods-Depo.a */; };
+		412C8C061A06A10E0067DEAA /* depoNameLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 412C8C051A06A10E0067DEAA /* depoNameLogo.png */; };
+		412C8C0C1A06A7FD0067DEAA /* businessman189.png in Resources */ = {isa = PBXBuildFile; fileRef = 412C8C0B1A06A7FD0067DEAA /* businessman189.png */; };
 		41FB65E41A05524200C52848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E31A05524200C52848 /* main.m */; };
 		41FB65E71A05524200C52848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E61A05524200C52848 /* AppDelegate.m */; };
 		41FB65EA1A05524200C52848 /* Depo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41FB65E81A05524200C52848 /* Depo.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		412C8C051A06A10E0067DEAA /* depoNameLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = depoNameLogo.png; sourceTree = "<group>"; };
+		412C8C0B1A06A7FD0067DEAA /* businessman189.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = businessman189.png; sourceTree = "<group>"; };
 		41FB65DE1A05524200C52848 /* Depo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Depo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FB65E21A05524200C52848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41FB65E31A05524200C52848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				41FB65E81A05524200C52848 /* Depo.xcdatamodeld */,
 				4D876B051A068599007AD48C /* User.h */,
 				4D876B061A068599007AD48C /* User.m */,
+				412C8C051A06A10E0067DEAA /* depoNameLogo.png */,
+				412C8C0B1A06A7FD0067DEAA /* businessman189.png */,
 				41FB65E11A05524200C52848 /* Supporting Files */,
 			);
 			path = Depo;
@@ -306,6 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				41FB65F01A05524200C52848 /* Main.storyboard in Resources */,
+				412C8C061A06A10E0067DEAA /* depoNameLogo.png in Resources */,
+				412C8C0C1A06A7FD0067DEAA /* businessman189.png in Resources */,
 				41FB65F51A05524200C52848 /* LaunchScreen.xib in Resources */,
 				41FB65F21A05524200C52848 /* Images.xcassets in Resources */,
 			);

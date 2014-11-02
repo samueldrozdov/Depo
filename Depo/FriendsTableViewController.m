@@ -24,7 +24,10 @@
 
 @end
 
-@implementation FriendsTableViewController
+@implementation FriendsTableViewController {
+    
+    __weak IBOutlet UIButton *addButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +41,14 @@
     
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     self.usersArray = [fetchedObjects mutableCopy];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //make add button a circle
+    addButton.clipsToBounds = YES;
+    addButton.layer.cornerRadius = 40/2.0f;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +86,8 @@
         if (![managedObjectContext save:&error]) {
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
         }
+        [self.nameField resignFirstResponder];
+        [self.publicKeyField resignFirstResponder];
         [self.tableView reloadData];
     }
 }
