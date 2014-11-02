@@ -19,9 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *userBitcoinPublicKeyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *walletInstructionLabel;
-@property (weak, nonatomic) IBOutlet UIWebView *webview;
+
 
 // Paypal
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
@@ -130,9 +130,6 @@
         } else {
             NSDictionary *spotPrice = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             bitcoinPrice = [[spotPrice objectForKey:@"amount"] floatValue];
-            
-            //label mechanics - shows price of bitcoin to USD
-            _bitcoinPriceLabel.text = [NSString stringWithFormat:@"1 BTC = $%.2f", bitcoinPrice];
         }
     }];
 }
