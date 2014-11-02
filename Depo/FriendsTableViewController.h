@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendsTableViewController : UITableViewController
+@property (nonatomic, strong) NSMutableArray *userInfo;
 
 @end

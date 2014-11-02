@@ -85,13 +85,6 @@
                                     <action selector="mockSend:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vn8-8M-2kI"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i54-In-9kN">
-                                <rect key="frame" x="200" y="286" width="200" height="190"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="bwe-2i-fNa"/>
-                                </constraints>
-                            </webView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 BTC = ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-W9-Jik">
                                 <rect key="frame" x="142" y="179" width="75" height="25"/>
                                 <constraints>
@@ -102,7 +95,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paste Your Wallet Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1j-sM-rfh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Paste Your Wallet Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1j-sM-rfh">
                                 <rect key="frame" x="150" y="71" width="303" height="35"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -119,21 +112,18 @@
                             <constraint firstItem="Vxp-G6-Kjb" firstAttribute="leading" secondItem="MUZ-W9-Jik" secondAttribute="trailing" constant="8" id="LJ4-uH-aRl"/>
                             <constraint firstItem="MUZ-W9-Jik" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="LeV-He-YuJ"/>
                             <constraint firstAttribute="centerX" secondItem="MUZ-W9-Jik" secondAttribute="centerX" id="ObL-8e-hr5"/>
-                            <constraint firstAttribute="centerX" secondItem="i54-In-9kN" secondAttribute="centerX" id="OhB-GR-o4M"/>
                             <constraint firstItem="Vxp-G6-Kjb" firstAttribute="top" secondItem="TC0-IU-W8v" secondAttribute="bottom" constant="33" id="QTQ-Gm-hXz"/>
                             <constraint firstItem="Xi4-KK-ica" firstAttribute="top" secondItem="Vxp-G6-Kjb" secondAttribute="bottom" constant="8" id="R5u-Ih-aID"/>
                             <constraint firstItem="TC0-IU-W8v" firstAttribute="leading" secondItem="MUZ-W9-Jik" secondAttribute="leading" id="Wo1-Zc-yYv"/>
                             <constraint firstAttribute="centerX" secondItem="Xi4-KK-ica" secondAttribute="centerX" constant="-7" id="Y69-PY-PLM"/>
                             <constraint firstAttribute="centerY" secondItem="Xi4-KK-ica" secondAttribute="centerY" constant="22" id="aYv-IU-ODt"/>
                             <constraint firstItem="XAF-H4-lSF" firstAttribute="leading" secondItem="Xi4-KK-ica" secondAttribute="trailing" constant="8" id="bjl-09-2g9"/>
-                            <constraint firstItem="i54-In-9kN" firstAttribute="top" secondItem="Xi4-KK-ica" secondAttribute="bottom" constant="8" id="eiR-TA-Wzk"/>
                             <constraint firstItem="TC0-IU-W8v" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="fW9-RB-u4X"/>
                             <constraint firstItem="MUZ-W9-Jik" firstAttribute="top" secondItem="TC0-IU-W8v" secondAttribute="bottom" constant="36" id="gAb-7e-gP7"/>
                             <constraint firstItem="TC0-IU-W8v" firstAttribute="top" secondItem="A1j-sM-rfh" secondAttribute="bottom" constant="8" id="haM-v6-DWJ"/>
                             <constraint firstItem="MUZ-W9-Jik" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="62" id="ort-yK-Fk7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MUZ-W9-Jik" secondAttribute="trailing" constant="70" id="r07-kP-CMl"/>
                             <constraint firstItem="TC0-IU-W8v" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="u2B-54-gdc"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="i54-In-9kN" secondAttribute="bottom" constant="16" id="uFv-Zt-fNQ"/>
                             <constraint firstItem="ooS-tF-hxd" firstAttribute="top" secondItem="TC0-IU-W8v" secondAttribute="bottom" constant="40" id="vsm-ZQ-hL5"/>
                             <constraint firstAttribute="centerX" secondItem="A1j-sM-rfh" secondAttribute="centerX" constant="-0.5" id="y6Q-O1-kd9"/>
                         </constraints>
@@ -162,10 +152,10 @@
                     <connections>
                         <outlet property="amountField" destination="Vxp-G6-Kjb" id="5u8-YU-94c"/>
                         <outlet property="bitcoinPriceLabel" destination="MUZ-W9-Jik" id="GYi-4B-zg0"/>
+                        <outlet property="conversionLabel" destination="ooS-tF-hxd" id="IV6-jh-ABW"/>
                         <outlet property="sendButton" destination="Xi4-KK-ica" id="WNe-Us-fgb"/>
                         <outlet property="userBitcoinPublicKeyTextField" destination="TC0-IU-W8v" id="R6b-iN-44p"/>
                         <outlet property="walletInstructionLabel" destination="A1j-sM-rfh" id="I8r-m3-mHI"/>
-                        <outlet property="webview" destination="i54-In-9kN" id="wmA-lG-tn9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -211,12 +201,12 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="OSM-CL-jSe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="OSM-CL-jSe">
                                 <rect key="frame" x="16" y="181" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy Our Wallet Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaV-hd-ncJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copy Our Wallet Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaV-hd-ncJ">
                                 <rect key="frame" x="92" y="28" width="418" height="50"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -228,11 +218,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-l2-J9X">
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-l2-J9X">
                                 <rect key="frame" x="16" y="268" width="568" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-LE-rXP">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-LE-rXP">
                                 <rect key="frame" x="358" y="222" width="226" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="SHOW ME THE MONEY">
@@ -242,12 +232,12 @@
                                     <action selector="showMeTheMoneyButton:" destination="b9O-14-hvg" eventType="touchDown" id="1xm-rW-Gzy"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrN-rB-JJl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrN-rB-JJl">
                                 <rect key="frame" x="88" y="226" width="164" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY7-gz-6QW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY7-gz-6QW">
                                 <rect key="frame" x="16" y="229" width="67" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

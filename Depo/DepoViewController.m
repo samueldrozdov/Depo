@@ -225,7 +225,15 @@
 -(void)startBitcoinTransaction{
     
     NSLog(@"start Bitcoin transcation");
-    NSString *prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
+    NSString *toPublicKey = self.userBitcoinPublicKeyTextField.text;
+    __block NSString* prepString;
+    NSString *preString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=";
+    if(!toPublicKey){
+        prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
+    }
+    else{
+        prepString = [NSString stringWithFormat:@"%@%@&amount=100000",preString,toPublicKey];
+    }
     //webview code
     //NSString *fullURL = @"http://conecode.com";
     //NSURL *url = [NSURL URLWithString:fullURL];
@@ -241,6 +249,7 @@
     id response=[NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:&error];
     NSMutableDictionary *results = (NSMutableDictionary*) response;
     NSLog(@"results:%@",results);
+    NSString *message = [results objectForKey:@"message"];
     
 }
 
