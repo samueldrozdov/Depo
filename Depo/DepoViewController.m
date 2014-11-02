@@ -279,9 +279,31 @@
     
     
     
+//    [chain getAddress:preloadedUserPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
+//      
+//        if (error)
+//        {
+//            NSLog(@"Chain error: %@", error);
+//        }
+//        
+//        else
+//        {
+//            NSArray * result = [dictionary objectForKey:@"results"];
+//            
+//            
+//            //self.hashstring is the previous transaction hash
+//            
+//            NSString *tempAddressHash = [[result firstObject] objectForKey:@"address"];
+//            
+//            NSLog(@"%@", dictionary);
+//            
+//        }
+//
+//        
+//        
+//    }];
     
-    
-    [chain getAddressTransactions:preloadedUserPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
+    [chain getAddressTransactions: preloadedMasterPublicKey completionHandler:^(NSDictionary *dictionary, NSError *error) {
         if (error)
         {
             NSLog(@"Chain error: %@", error);
@@ -291,11 +313,11 @@
             NSArray * result = [dictionary objectForKey:@"results"];
             
             
-            //self.hashstring is the previous transaction hash
+//            self.hashstring is the previous transaction hash
             
             self.hashstring = [[result firstObject] objectForKey:@"hash"];
             
-            NSLog(@"HASH %@", self.hashstring);
+            NSLog(@"%@", self.hashstring);
             
         }
     }];
