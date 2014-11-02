@@ -141,68 +141,42 @@
 
 - (IBAction)sendTapped:(id)sender {
     
-    //api prep code
-    //NSString *userWalletPublicKey = _userKeyAddressTextField.text;
+
     NSString *amount = self.amountField.text;
+    PayPalItem *item1 = [PayPalItem itemWithName:@"Bitcoin Transaction"
+                                    withQuantity:1
+                                       withPrice:[NSDecimalNumber decimalNumberWithString:self.amountField.text]
+                                    withCurrency:@"USD"
+                                         withSku:@"Hip-00037"];
+    NSArray *items = @[item1];
+    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
+    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0"];
+    NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"0"];
+    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
+                                                                               withShipping:shipping
+                                                                                    withTax:tax];
     
-    //NSString *prepString = [NSString stringWithFormat:@"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E1  82986ZNze8&to= %@ &amount= %@", userWalletPublicKey, amount];
+    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    payment.amount = total;
+    payment.currencyCode = @"USD";
+    payment.shortDescription = @"Bitcoin Transaction";
+    payment.items = items;  // if not including multiple items, then leave payment.items as nil
+    payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
+    if (!payment.processable) {
+
+        
+    }
     
-    NSString *prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
-    //webview code
-    //NSString *fullURL = @"http://conecode.com";
-    //NSURL *url = [NSURL URLWithString:fullURL];
+    // Update payPalConfig re accepting credit cards.
+    self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
     
-    NSURL *url = [NSURL URLWithString:prepString];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [self.webview loadRequest:requestObj];
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
+                                                                                                configuration:self.payPalConfig
+                                                                                                     delegate:self];
+    [self presentViewController:paymentViewController animated:YES completion:nil];
     
-    /*
-//    self.userBitcoinPublicKey  = [self.userBitcoinPublicKeyTextField.text copy];
-//    self.sentAmount = [self.amountField.text floatValue];
-//
-//    
-//    NSLog(@"User Public key: %@\nSent amount: %f", self.userBitcoinPublicKey, self.sentAmount);
-//    
-//
-//    // Remove our last completed payment, just for demo purposes.
-//    self.resultText = nil;
-//    PayPalItem *item1 = [PayPalItem itemWithName:@"Bitcoin Transaction"
-//                                    withQuantity:1
-//                                       withPrice:[NSDecimalNumber decimalNumberWithString:self.amountField.text]
-//                                    withCurrency:@"USD"
-//                                         withSku:@"Hip-00037"];
-//    NSArray *items = @[item1];
-//    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
-//    
-//    // Optional: include payment details
-//    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0"];
-//    NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"0"];
-//    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
-//                                                                               withShipping:shipping
-//                                                                                    withTax:tax];
-//    
-//    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
-//    
-//    PayPalPayment *payment = [[PayPalPayment alloc] init];
-//    payment.amount = total;
-//    payment.currencyCode = @"USD";
-//    payment.shortDescription = @"Bitcoin Transaction";
-//    payment.items = items;  // if not including multiple items, then leave payment.items as nil
-//    payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
-//    payment.intent = PayPalPaymentIntentSale;
-//    
-//    if (!payment.processable) {
-//        
-//    }
-//    
-//    // Update payPalConfig re accepting credit cards.
-//    self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
-//    
-//    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
-//                                                                                                configuration:self.payPalConfig
-//                                                                                                     delegate:self];
-//    [self presentViewController:paymentViewController animated:YES completion:nil];
-*/
+    
 }
 
 
@@ -251,6 +225,22 @@
 -(void)startBitcoinTransaction{
     
     NSLog(@"start Bitcoin transcation");
+    NSString *prepString = @"https://blockchain.info/merchant/2526006c-8a8b-47a3-ab37-4f9b6eff5e39/payment?password=%262N86363%5E182986ZNze8&to=1B9JKx7PCFqRYejzdV8ig3mS4VMPTgVLkq&amount=100000";
+    //webview code
+    //NSString *fullURL = @"http://conecode.com";
+    //NSURL *url = [NSURL URLWithString:fullURL];
+    
+    //NSURL *url = [NSURL URLWithString:prepString];
+    
+    
+    NSURL *url = [NSURL URLWithString:prepString];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    NSData *data=[NSData dataWithContentsOfURL:url];
+    NSError *error=nil;
+    id response=[NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:&error];
+    NSMutableDictionary *results = (NSMutableDictionary*) response;
+    NSLog(@"results:%@",results);
     
 }
 
