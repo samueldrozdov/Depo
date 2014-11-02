@@ -7,6 +7,8 @@
 //
 
 #import "DepoViewController.h"
+#import "PayPalPayment.h"
+#import "ServerRequest.h"
 
 @interface DepoViewController ()
 
@@ -35,9 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     
     self.userBitcoinPublicKey = [NSString new];
 
+=======
+>>>>>>> 17a51f24f500b1b75d76e950ec50ea653fc0ad02
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
     
@@ -50,11 +55,12 @@
     _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
     _payPalConfig.rememberUser=YES;
     
+    
     _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
     // Do any additional setup after loading the view, typically from a nib.
     
     self.successView.hidden = YES; //animation for when payment is successful
-    self.environment = PayPalEnvironmentNoNetwork;
+    self.environment = PayPalEnvironmentSandbox;
 
     
 }
@@ -110,7 +116,6 @@
 -(void)countdown {
     countdownCounter--;
     if(countdownCounter == 0) {
-        NSLog(@"Counter Reset");
         countdownCounter = 10;
         [self getBitcoinPrice];
     }
@@ -165,12 +170,10 @@
     payment.shortDescription = @"Bitcoin Transaction";
     payment.items = items;  // if not including multiple items, then leave payment.items as nil
     payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
+    payment.intent = PayPalPaymentIntentSale;
     
     if (!payment.processable) {
-        // This particular payment will always be processable. If, for
-        // example, the amount was negative or the shortDescription was
-        // empty, this payment wouldn't be processable, and you'd want
-        // to handle that here.
+        
     }
     
     // Update payPalConfig re accepting credit cards.
@@ -181,6 +184,7 @@
                                                                                                      delegate:self];
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
+
 
 
 #pragma mark PayPalPaymentDelegate methods
@@ -207,11 +211,27 @@
 
 - (void)sendCompletedPaymentToServer:(PayPalPayment *)completedPayment {
     // TODO: Send completedPayment.confirmation to server
-    NSLog(@"Here is your proof of payment:\n\n%@\n\nSend this to your server for confirmation and fulfillment.", completedPayment.confirmation);
+    NSLog(@"Here is your proof of payment:\n\n%@\n\n Send this to your server for confirmation and fulfillment.", completedPayment.confirmation);
     
     NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
                                                            options:0
                                                              error:nil];
+    
+    ServerRequest *paymentRequest = [ServerRequest sharedManager];
+    BOOL PayPalConfirmed=[paymentRequest postPayment:confirmation];
+    if(PayPalConfirmed){
+        [self startBitcoinTransaction];
+    }
+    
+    
+}
+
+#pragma mark - start bitcoin transcation
+
+-(void)startBitcoinTransaction{
+    
+    NSLog(@"start Bitcoin transcation");
+    
 }
 
 
