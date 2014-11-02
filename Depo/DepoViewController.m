@@ -50,8 +50,12 @@
     [super viewDidLoad];
     
     self.userBitcoinPublicKey = [NSString new];
-
-    self.title = @"Depo";
+    self.navigationController.navigationBar.barTintColor= [UIColor colorWithRed:53/255.0 green:202/255.0 blue:13/255.0 alpha:1];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"Avenir" size:21],
+      NSFontAttributeName, nil]];
+    self.title = @"depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
     //self.transactionLabel.adjustsFontSizeToFitWidth=YES;
     //self.transactionHashLabel.adjustsFontSizeToFitWidth=YES;
@@ -248,10 +252,7 @@
         prepString = [NSString stringWithFormat:@"%@%@&amount=%@",template,toPublicKey,roundedAmount];
     }
     //webview code
-    //NSString *fullURL = @"http://conecode.com";
-    //NSURL *url = [NSURL URLWithString:fullURL];
-    
-    //NSURL *url = [NSURL URLWithString:prepString];
+
     
     
     NSURL *url = [NSURL URLWithString:prepString];

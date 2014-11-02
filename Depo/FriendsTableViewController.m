@@ -38,7 +38,8 @@
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"User" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    
+    self.nameField.delegate=self;
+    self.publicKeyField.delegate = self;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     self.usersArray = [fetchedObjects mutableCopy];
 }
@@ -51,6 +52,11 @@
     addButton.layer.cornerRadius = 40/2.0f;
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
 
 #pragma mark - Table view data source
 

@@ -11,7 +11,7 @@
 -(void)selectedUser:(NSString*)publicKey;
 @end
 
-@interface FriendsTableViewController : UITableViewController<selectedUserDelegate>
+@interface FriendsTableViewController : UITableViewController<selectedUserDelegate,UITextFieldDelegate>
 @property (strong, nonatomic) id <selectedUserDelegate> delegate;
 
 @end

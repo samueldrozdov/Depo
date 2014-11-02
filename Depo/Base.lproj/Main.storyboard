@@ -73,7 +73,7 @@
                                 <color key="textColor" red="0.98543249310000003" green="0.98543249310000003" blue="0.98543249310000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="perform a transaction" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2y-tW-0uP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first perform a transaction" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="F2y-tW-0uP">
                                 <rect key="frame" x="32" y="440" width="536" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Ku-d4-qnk"/>
@@ -82,7 +82,7 @@
                                 <color key="textColor" red="0.99814702749999995" green="0.99373121330000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="perform a transaction" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibZ-gG-x6e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first perform a transaction" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ibZ-gG-x6e">
                                 <rect key="frame" x="32" y="311" width="536" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="g0r-oZ-EMP"/>
@@ -143,7 +143,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="depo" id="PH4-xW-u3W">
                         <barButtonItem key="leftBarButtonItem" image="businessman189.png" id="xHM-Yd-Qbp">
-                            <color key="tintColor" red="0.20784313725490197" green="0.792156862745098" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showAddressBook:" destination="vXZ-lx-hvc" id="vaj-3X-3mA"/>
                             </connections>

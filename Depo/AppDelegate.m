@@ -17,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.tintColor = [UIColor colorWithRed:16.0/255.0 green:16.0/255.0 blue:16.0/255.0 alpha:1.0];
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AdGmbhBsvybVnH9P-skv93rmctiUrzf_mrLaeq9287yRhvU4geey__HKkCc3",
                                                            PayPalEnvironmentSandbox :
                                                                @"AdWIMhBWL1J4CABkN05e4ywdzam7K-2g78QaY9m78OlWE1N3k9J210IhBhUI"}];
