@@ -53,6 +53,8 @@
 
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
+    //self.transactionLabel.adjustsFontSizeToFitWidth=YES;
+    //self.transactionHashLabel.adjustsFontSizeToFitWidth=YES;
     
     // Set up payPalConfig
     _payPalConfig = [[PayPalConfiguration alloc] init];
