@@ -13,27 +13,29 @@
 
 @interface DepoViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *amountField;
-@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+// UI Elements
 @property(nonatomic, strong, readwrite) IBOutlet UIView *successView;
+@property (weak, nonatomic) IBOutlet UITextField *amountField;
 @property (weak, nonatomic) IBOutlet UITextField *userBitcoinPublicKeyTextField;
-
-@property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
-
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *conversionLabel;
 
+// Paypal
+@property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
 
+// Values
+@property (strong, nonatomic) NSString * hashstring;
 @property (strong, nonatomic) NSString * userBitcoinPublicKey;
 @property (assign, nonatomic) float  sentAmount;
-
-@property (strong, nonatomic) NSString * hashstring;
 
 @end
 
 @implementation DepoViewController {
+    
     NSInteger countdownCounter;
     float bitcoinPrice;
     UITapGestureRecognizer *tap;
+    
 }
 
 
@@ -249,11 +251,13 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
-- (IBAction)mockSend:(id)sender
-{
+
+- (IBAction)mockSend:(id)sender {
     
     //User public key : n2Q1BDERQ7voY4uzUYUQZNdHUsFwfw59ze
     NSString *preloadedUserPublicKey = @"n2Q1BDERQ7voY4uzUYUQZNdHUsFwfw59ze";
