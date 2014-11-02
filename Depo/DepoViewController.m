@@ -32,28 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
- 
-    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.paypal.com/v1/payments/payment"]];
-   
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"GET"];
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-    
-    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
-        NSInteger responseStatusCode = [httpResponse statusCode];
-        NSLog(@"response:%ld",(long)responseStatusCode);
-        if(responseStatusCode==200 &&data){
-            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]; //list of dictionaries
-            NSLog(@"downloaded:%@",downloadedJSON);
-        }
-    }];
-    [dataTask resume];
-
     self.title = @"Depo";
     self.amountField.keyboardType=UIKeyboardTypeDecimalPad;
     
@@ -66,11 +44,12 @@
     _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
     _payPalConfig.rememberUser=YES;
     
+    
     _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
     // Do any additional setup after loading the view, typically from a nib.
     
     self.successView.hidden = YES; //animation for when payment is successful
-    self.environment = PayPalEnvironmentNoNetwork;
+    self.environment = PayPalEnvironmentSandbox;
 
     
 }
@@ -125,7 +104,6 @@
 -(void)countdown {
     countdownCounter--;
     if(countdownCounter == 0) {
-        NSLog(@"Counter Reset");
         countdownCounter = 10;
         [self getBitcoinPrice];
     }
@@ -173,12 +151,10 @@
     payment.shortDescription = @"Bitcoin Transaction";
     payment.items = items;  // if not including multiple items, then leave payment.items as nil
     payment.paymentDetails = paymentDetails; // if not including payment details, then leave payment.paymentDetails as nil
+    payment.intent = PayPalPaymentIntentSale;
     
     if (!payment.processable) {
-        // This particular payment will always be processable. If, for
-        // example, the amount was negative or the shortDescription was
-        // empty, this payment wouldn't be processable, and you'd want
-        // to handle that here.
+        
     }
     
     // Update payPalConfig re accepting credit cards.
@@ -189,6 +165,7 @@
                                                                                                      delegate:self];
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
+
 
 
 #pragma mark PayPalPaymentDelegate methods
@@ -222,8 +199,19 @@
                                                              error:nil];
     
     ServerRequest *paymentRequest = [ServerRequest sharedManager];
-    [paymentRequest postPayment:confirmation];
+    BOOL PayPalConfirmed=[paymentRequest postPayment:confirmation];
+    if(PayPalConfirmed){
+        [self startBitcoinTransaction];
+    }
     
+    
+}
+
+#pragma mark - start bitcoin transcation
+
+-(void)startBitcoinTransaction{
+    
+    NSLog(@"start Bitcoin transcation");
     
 }
 

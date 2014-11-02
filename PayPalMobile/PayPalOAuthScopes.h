@@ -22,7 +22,7 @@ NSString *const kPayPalOAuth2ScopeOpenId;
 /// Share your personal and account information.
 NSString *const kPayPalOAuth2ScopePayPalAttributes;
 
-/// Share your email address.
+/// Share your email address.   
 NSString *const kPayPalOAuth2ScopeEmail;
 
 /// Share your account address.
